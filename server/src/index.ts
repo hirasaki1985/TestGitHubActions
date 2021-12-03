@@ -7,7 +7,8 @@ const main = async () => {
 
   const PORT = serverConfig.port || 3000;
   server.listen(PORT, () => {
-    console.log("server listen start, ", PORT);
+    console.log("server listen start, ");
+    console.log(`http://localhost:${PORT}`)
   });
 };
 
