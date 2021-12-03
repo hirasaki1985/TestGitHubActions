@@ -4,23 +4,29 @@ import {
 } from './HealthCheckStateType'
 
 export interface HealthCheckState {
-  success: boolean
+  result: HealthCheckResponse
 }
 
 export const initializeState: HealthCheckState = {
-  success: true,
+  result: {
+    success: false,
+    checkTime: undefined,
+  },
 }
 
 export function HealthCheckReducer(
   state: HealthCheckState = initializeState,
   action: stateActionHealthCheckTypes,
 ): HealthCheckState {
+  const copyState: HealthCheckState = Object({ ...state })
+
   switch (action.type) {
     case STATE_ACTION_HEALTH_CHECK:
-      state.success = action.payload.success
-      return state
+      copyState.result.success = action.payload.success
+      copyState.result.checkTime = action.payload.checkTime
+      return copyState
 
     default:
-      return state
+      return copyState
   }
 }

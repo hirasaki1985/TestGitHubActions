@@ -1,10 +1,9 @@
 import { STATE_ACTION_HEALTH_CHECK } from './HealthCheckStateType'
 
-export function stateActionHealthCheck(success: boolean) {
+// eslint-disable-next-line import/prefer-default-export
+export function stateActionHealthCheck(result: HealthCheckResponse) {
   return {
     type: STATE_ACTION_HEALTH_CHECK,
-    payload: {
-      success,
-    },
+    payload: result,
   }
 }

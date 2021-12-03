@@ -10,7 +10,7 @@ export default class HealthCheckService {
   /**
    * healthCheck
    */
-  public async healthCheck(): Promise<boolean> {
+  public async healthCheck(): Promise<HealthCheckResponse> {
     const healthCheckResult = await this.healthCheckRepository.healthCheck()
     return healthCheckResult
   }

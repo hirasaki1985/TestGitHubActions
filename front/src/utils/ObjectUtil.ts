@@ -10,7 +10,7 @@ export default class ObjectUtil {
     const copyParams = { ...params }
 
     const keysForDel: string[] = []
-    Object.keys(copyParams).forEach((key: string, i: number) => {
+    Object.keys(copyParams).forEach((key: string) => {
       const value = copyParams[key]
       if (value == null || value === '') keysForDel.push(key)
     })

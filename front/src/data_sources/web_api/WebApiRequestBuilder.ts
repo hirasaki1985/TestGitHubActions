@@ -14,7 +14,7 @@ class WebApiRequestBuilder<Request, Response> {
 
   private contentType: WebApiContentType = WebApiContentType.JSON
 
-  private withAuth: boolean = true
+  private withAuth: boolean
 
   private httpClient: AxiosInstance
 
@@ -35,6 +35,7 @@ class WebApiRequestBuilder<Request, Response> {
     this.version = version
     this.contentType = contentType
     this.baseUrl = baseUrl
+    this.withAuth = false
 
     // http client
     this.httpClient = axios.create({})
@@ -43,9 +44,7 @@ class WebApiRequestBuilder<Request, Response> {
   /**
    * auth
    */
-  public auth(
-    withAuth: boolean = false,
-  ): WebApiRequestBuilder<Request, Response> {
+  public auth(withAuth = false): WebApiRequestBuilder<Request, Response> {
     this.withAuth = withAuth
     return this
   }

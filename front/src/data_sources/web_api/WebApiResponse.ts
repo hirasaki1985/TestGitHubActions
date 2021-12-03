@@ -24,5 +24,5 @@ export function getWebApiInitResponse<Res>(data: Res) {
     data,
     errorMessage: '',
   }
-  return new WebApiResponse(response, (data) => data)
+  return new WebApiResponse(response, (_data) => _data)
 }
