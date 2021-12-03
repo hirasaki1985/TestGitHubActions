@@ -17,11 +17,14 @@ jobs:
 
       - name: Install packages
         run: npm ci
+        working-directory: ${{env.working-directory}}
 
       # prettier
       - name: Prettier
         run: npm run prettier-fix
+        working-directory: ${{env.working-directory}}
 
       # eslint
       - name: Lint
         run: npm run eslint-fix
+        working-directory: ${{env.working-directory}}
