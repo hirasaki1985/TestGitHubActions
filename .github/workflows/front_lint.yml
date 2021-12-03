@@ -1,0 +1,25 @@
+name: front - Lint
+on: push
+jobs:
+  run-linters:
+    name: front - Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14.x"
+
+      - name: Install packages
+        run: npm ci
+
+      # prettier
+      - name: Prettier
+        run: npm run prettier-fix
+
+      # eslint
+      - name: Lint
+        run: npm run eslint-fix
