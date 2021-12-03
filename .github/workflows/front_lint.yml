@@ -4,6 +4,8 @@ jobs:
   run-linters:
     name: front - Lint
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./front
     steps:
       - name: Check out
         uses: actions/checkout@v2
