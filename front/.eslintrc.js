@@ -35,6 +35,7 @@ module.exports = {
     'eslint-plugin-jsdoc',
     'eslint-plugin-react',
     '@typescript-eslint',
+    '@hirasaki/coding-rules',
   ],
   settings: {
     react: {
@@ -42,6 +43,23 @@ module.exports = {
     },
   },
   rules: {
+    '@hirasaki/coding-rules/no-use-specific-imports': [
+      'error',
+      [
+        {
+          filePath: ['**/components/**'],
+          importName: ['react-redux', '**/stores'],
+          message:
+            "'{{importSource}}'からは'{{importFrom}}'をインポートすることはできません。",
+        },
+        {
+          filePath: ['**/pages/**'],
+          importName: ['**/*Service', '**/ServiceFactory'],
+          message:
+            "'{{importSource}}'からは'{{importFrom}}'をインポートすることはできません。",
+        },
+      ],
+    ],
     'import/extensions': [
       2,
       {
